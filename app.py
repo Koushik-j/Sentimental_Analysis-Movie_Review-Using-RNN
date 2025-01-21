@@ -47,7 +47,7 @@ tab1,tab2 = st.tabs(["Model Info","Let's Analyze"])
 
 with tab2:
 
-    st.write("The is a '1%' chance that the model may predict wrong. If you get a review which falls under that category, You are Lucky!! 💯.")
+    st.write("There is a '1%' chance that the model may predict wrong. If you get a review which falls under that category, You are Lucky!! 💯.")
 
     st.write("Write a review to classify it as Positive or Negative")
 
