@@ -75,7 +75,7 @@ st.write("2. If you are a non-coder then please refresh the page and try again ð
 
 st.subheader("| Github")
 st.write(
-    '<p>To check out the code, Visit <a href="https://github.com/Koushik-j/Artificial_Neural_Network-Classification-Customer-Churn-Prediction">GitHub</a>.</p><br>',
+    '<p>To check out the code, Visit <a href="https://github.com/Koushik-j/Sentimental_Analysis-Movie_Review-Using-RNN">GitHub</a>.</p><br>',
     unsafe_allow_html=True,
 )
 
