@@ -37,7 +37,12 @@ def preprocess_text(text):
 
 ## Streamlit App
 
-st.title("Movie Review Sentiment analysis")
+st.set_page_config(
+    page_title="Movie Review Sentiment analysis", page_icon="🎇"
+)
+
+st.title("🎇 Movie Review Sentiment analysis")
+
 st.write("Write a review to classify it as Positive or Negative")
 
 user_input = st.text_area('Movie Review')
@@ -57,4 +62,9 @@ else:
 
     st.write("Please enter a review and click the button to predict the sentiment")
 
+
+st.subheader("| Note:")
+st.write("If the code breaks there are two options")
+st.write("1. If you are a coder you can go to my Github and fork the code to make the changes. If it works please email me the changes 😁")
+st.write("2. If you are a non-coder then please refresh the page and try again 🤗")
 
