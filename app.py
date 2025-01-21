@@ -55,16 +55,27 @@ if st.button("Predict"):
 
     sentiment = 'Positive' if prediction[0][0] >0.5 else 'Negative'
 
-    st.write(f'Sentiment: {sentiment}')
-    st.write(f'The Prediction score: {prediction[0][0]}')
+    if sentiment == 'Positive':
+        st.success(f'Sentiment: {sentiment} ☑️')
+    else:
+        st.error(f'Sentiment: {sentiment} ❌')
+    st.write(f'The Prediction score: {prediction[0][0]} ')
 
 else:
 
     st.write("Please enter a review and click the button to predict the sentiment")
+
+st.markdown("---")
 
 
 st.subheader("| Note:")
 st.write("If the code breaks there are two options")
 st.write("1. If you are a coder you can go to my Github and fork the code to make the changes. If it works please email me the changes 😁")
 st.write("2. If you are a non-coder then please refresh the page and try again 🤗")
+
+st.subheader("| Github")
+st.write(
+    '<p>To check out the code, Visit <a href="https://github.com/Koushik-j/Artificial_Neural_Network-Classification-Customer-Churn-Prediction">GitHub</a>.</p><br>',
+    unsafe_allow_html=True,
+)
 
