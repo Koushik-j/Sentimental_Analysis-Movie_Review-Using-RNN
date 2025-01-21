@@ -38,44 +38,59 @@ def preprocess_text(text):
 ## Streamlit App
 
 st.set_page_config(
-    page_title="Movie Review Sentiment analysis", page_icon="🎇"
+    page_title="Movie Review Sentiment analysis", page_icon="🎇", layout="wide"
 )
 
 st.title("🎇 Movie Review Sentiment analysis")
 
-st.write("Write a review to classify it as Positive or Negative")
+tab1,tab2 = st.tabs(["Model Info","Let's Analyze"])
 
-user_input = st.text_area('Movie Review')
+with tab2:
 
-if st.button("Predict"):
+    st.write("The is a '1%' chance that the model may predict wrong. If you get a review which falls under that category, You are Lucky!! 💯.")
 
-    preprocessed_input = preprocess_text(user_input)
+    st.write("Write a review to classify it as Positive or Negative")
 
-    prediction = model.predict(preprocessed_input)
 
-    sentiment = 'Positive' if prediction[0][0] >0.5 else 'Negative'
+    user_input = st.text_area('Movie Review')
 
-    if sentiment == 'Positive':
-        st.success(f'Sentiment: {sentiment} ☑️')
+    if st.button("Predict"):
+
+        preprocessed_input = preprocess_text(user_input)
+
+        prediction = model.predict(preprocessed_input)
+
+        sentiment = 'Positive' if prediction[0][0] >0.5 else 'Negative'
+
+        if sentiment == 'Positive':
+            st.success(f'Sentiment: {sentiment} ☑️')
+        else:
+            st.error(f'Sentiment: {sentiment} ❌')
+        st.write(f'The Prediction score: {prediction[0][0]} ')
+
     else:
-        st.error(f'Sentiment: {sentiment} ❌')
-    st.write(f'The Prediction score: {prediction[0][0]} ')
 
-else:
+        st.write("Please enter a review and click the button to predict the sentiment")
 
-    st.write("Please enter a review and click the button to predict the sentiment")
+with tab1:
+    st.subheader("| Tips to write a review:")
+    st.write("1. Do not add any emoji's in the review, because our model is not trained with that 😅.")
+    st.write("2. Please use English to write a review, because our model is trained with English data only 🤖.")
+    st.write("3. Don't write regional languages using english like 'Chindi itu' or 'kirak undi' or 'Mast tha' etc")
+    st.write("4. Don't use hash tags as well.")
+    st.subheader("| Note:")
+    st.write("If the code breaks there are two options")
+    st.write("1. If you are a coder you can go to my Github and fork the code to make the changes. If it works please email me the changes 😁")
+    st.write("2. If you are a non-coder then please refresh the page and try again 🤗")
+
+    st.subheader("| Github")
+    st.write(
+        '<p>To check out the code, Visit <a href="https://github.com/Koushik-j/Sentimental_Analysis-Movie_Review-Using-RNN">GitHub</a>.</p><br>',
+        unsafe_allow_html=True,
+    )
 
 st.markdown("---")
 
 
-st.subheader("| Note:")
-st.write("If the code breaks there are two options")
-st.write("1. If you are a coder you can go to my Github and fork the code to make the changes. If it works please email me the changes 😁")
-st.write("2. If you are a non-coder then please refresh the page and try again 🤗")
 
-st.subheader("| Github")
-st.write(
-    '<p>To check out the code, Visit <a href="https://github.com/Koushik-j/Sentimental_Analysis-Movie_Review-Using-RNN">GitHub</a>.</p><br>',
-    unsafe_allow_html=True,
-)
 
